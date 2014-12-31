@@ -4,5 +4,6 @@
 (define (fast-mult a b)
     (define (iter a b acc)
         (cond ((= a 1) (+ b acc))
-              (else (fast-mult (- a 1) b (+ acc b)))))
+              ((even? a) (iter (halve a) (double b) acc))
+              (else (iter (- a 1) b (+ acc b)))))
     (iter a b 0))
