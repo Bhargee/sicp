@@ -3,7 +3,7 @@
 
 (define (make-branch len structure)
   (list len structure))
-
+; part a
 (define left-branch car)
 (define (right-branch br)
   (car (cdr br)))
@@ -11,17 +11,13 @@
 (define branch-length left-branch)
 (define branch-structure right-branch)
 
+(define mobile? pair?)
+; part b
 (define (total-weight mobile)
-  (let ((lb (left-branch mobile)) 
-        (rb (right-branch mobile)))
     (cond
-      ((and (not (pair? branch-structure lb)) 
-            (not (pair? branch-structure rb)))
-       (+ (* (branch-structure lb) (branch-length lb))
-          (* (branch-structure rb) (branch-length rb))))
-      ((not (pair? branch-structure lb))
-       (+ (* (branch-structure lb) (branch-length lb))
-          (total-weight rb)))
-      (
+      ((not (mobile? (branch-structure mobile))) (branch-structure mobile)) 
+      (else (+ 
+              (total-weight (left-branch mobile))
+              (total-weight (right-branch mobile))))))
 
 
