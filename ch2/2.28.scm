@@ -7,6 +7,7 @@
 (define test '((1 2) (2 3) (3 4)))
 (fringe test)
 
+; tail recursive in order tree traversal! new stuff
 (define (fringe t)
   (define (fringe-tr subtree curr)
     (cond
